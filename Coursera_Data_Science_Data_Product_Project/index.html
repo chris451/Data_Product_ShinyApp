@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to the Energy VisualizeR!</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Welcome to the Energy VisualizeR!">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Welcome to the Energy VisualizeR!</h1>
+    <h2>User's Documentation</h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>User&#39;s documentation: Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This <strong>Shiny App</strong> visualises profiles of the energy consumption and energy production (from photovoltaic panels) that are typical of central Europe. Measurements are available every 15 minutes for about 460 days. [note: as the original data is proprietary data, this data subset has been here deliberately quite heavily noised! ;-)] </p>
+
+<p>The data is a CSV file and is read at the launch of the Shiny App:</p>
+
+<pre><code class="r">data &lt;- read.csv(&quot;data_coursera_noised.csv&quot;)
+dim(data)
+</code></pre>
+
+<pre><code>## [1] 44832     9
+</code></pre>
+
+<p>The data set contains 44832 entries and 7 energy meters (plus one column for the dates, and one empty column)</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>User&#39;s documentation: Instructions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li><strong>Enter the power production (peak power, in kWp) of your photovoltaic installation (or the one you are planning to build on the roof of your house!) as well as your annual energy consumption in kWh (energy consumption without the energy for heating neither for the hot water).</strong>
+<br> If the user does not know these values, typical values are set by default. Modifying the peak power production and the energy consumption will rescale the profiles shown on the plot.</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>User&#39;s documentation: Instructions (continued)</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol start="2">
+    <li>  <b>Click on the play button to start going through the historical data!</b> <br>
+<i>Warning: historical values are not available for all energy meters all the time. This is due to the fact that these energy meters where not installed all at the same time, and some were decommissioned.</i>  </li>
+
+    <li>   <b>Optional: change the load type and select another energy meter to get different representative energy consumption/production profiles!</b>  </li>
+</ol>
+
+<p>The following loads types are available: </p>
+
+<ul>
+<li>House (general energy consumption: lights, appliances, fridge, etc.)</li>
+<li>Heat pump: for heating the house</li>
+<li>Hot water heat pump: for heating the hot water</li>
+<li>photovoltaic production</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>User&#39;s documentation: final notes</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Going through the historical data, one can notice periodic behaviour or seasonal changes (e.g. lower photovoltaic production in winter, higher consumption of the heat pump in order to deliver the required heat, etc.)</p>
+
+<p>Additionally to showing the profiles, the <strong><em>Supply Cover Factor</em></strong> (i.e. the proportion of the photovoltaic production that the user directly consumes at his own home [and not the part that is injected in the electricity network]) is computed for each day (written in the plot&#39;s title). A <em>Supply Cover Factor</em> of 100% means that 100% of the energy produced by the photovoltaic installation is consumed directly at home. A low <em>Supply Cover Factor</em> happens when it is very sunny or when the customer do not use much energy when the photovoltaic production is high. Additionally, if the photovoltaic installation is over sized, the <em>Supply Cover Factor</em> will be very low (the user of the App can easily test the effects of an over-sized PV installation by modifiying the input of the PV&#39;s peak power).</p>
+
+<style>
+strong {
+  font-weight: bold;
+}
+</style>
+
+<style>
+em {
+  font-style: italic
+}
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='User&#39;s documentation: Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='User&#39;s documentation: Instructions'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='User&#39;s documentation: Instructions (continued)'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='User&#39;s documentation: final notes'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title=''>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
